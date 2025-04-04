@@ -1,0 +1,17 @@
+{
+    "name": "arcmond/mqtt-with-php",
+    "require": {
+        "php-mqtt/client": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Arcmond\\MqttWithPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "MateusBMP",
+            "email": "bmp.mateus@gmail.com"
+        }
+    ]
+}

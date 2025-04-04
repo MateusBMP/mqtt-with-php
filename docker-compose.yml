@@ -1,0 +1,25 @@
+services:
+  broker:
+    image: eclipse-mosquitto:2.0
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./docker/broker/mosquitto.conf:/mosquitto/config/mosquitto.conf
+  publisher:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - .:/app
+    command: php publisher.php
+    depends_on:
+      - broker
+  subscriber:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - .:/app
+    command: php subscriber.php
+    depends_on:
+      - broker
